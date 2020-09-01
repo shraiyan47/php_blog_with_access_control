@@ -75,11 +75,19 @@ if (isset($_POST['login'])) {
 	}
 	else
 	{
+			$x = $row['id'];
 		session_start();
 
-		$_SESSION['log'] = "fail";
+		$_SESSION['log'] = 'in';
 
-		header("Location: index.php");
+		$_SESSION['userid'] = $x;
+
+		if($x != 3){
+		header("Location: userpanel.php");}
+		else
+		{
+			header("Location: managerpanel.php");
+		}
 	}
 
 }
