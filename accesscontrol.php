@@ -57,6 +57,22 @@ if (isset($_POST['login'])) {
 			header("Location: managerpanel.php");
 		}
 	}
+	else if(!$row)
+	{
+		$x = $row['id'];
+		session_start();
+
+		$_SESSION['log'] = 'in';
+
+		$_SESSION['userid'] = $x;
+
+		if($x != 3){
+		header("Location: userpanel.php");}
+		else
+		{
+			header("Location: managerpanel.php");
+		}
+	}
 	else
 	{
 		session_start();
